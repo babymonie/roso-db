@@ -1,0 +1,19 @@
+{
+  "name": "roso-db",
+  "version": "1.0.0",
+  "description": "ROSODB is a database that uses a combination of SQL and JSON. It is easy to use, making it a great choice for those who need a simple database solution.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "ThatFriendlyAsianDev",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^9.4.1",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "socket.io": "^4.5.3",
+    "socketio-auth": "^0.1.1"
+  },
+  "bin": {
+    "roso": "index.js"
+  }
+}
