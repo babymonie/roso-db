@@ -2,6 +2,9 @@
 ## Badges
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+
+[![Rate this package](https://badges.openbase.com/js/rating/roso-db.svg?style=openbase&token=9ocj18+VRVHU2ARGXIbxunxdTAVkIoBlChonnZPp7BE=)](https://openbase.com/js/roso-db?utm_source=embedded&amp;utm_medium=badge&amp;utm_campaign=rate-badge)
+
 ## Authors
 
 - [@thatfriendlyasiandev](https://www.github.com/babymonie)
