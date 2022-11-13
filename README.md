@@ -41,7 +41,7 @@ Install rosodb with npm
   cause -h any hostname -p any port -username for connection -pa password for connection
 ```
 
-How to create your own custom extensions/commands
+## How to create your own custom extensions/commands
 
 ```bash
   #create a file and name it whatever you want and then paste this baseplate code in It,check the api.js docs below for more info.
@@ -81,7 +81,7 @@ How to create your own custom extensions/commands
 ## How to Import custom extensions/commands
 
 ### drag and drop the extension file to the commands folder wherever the database server is running, and then restart the server commands will automatically be imported.
-```
+
 ## API Reference
 
 #### Get all databases
