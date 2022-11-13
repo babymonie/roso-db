@@ -78,10 +78,9 @@ How to create your own custom extensions/commands
 
   #this command is a prebuilt command in rosodb so you can use it as a reference for your own commands.
 ```
-How to Import custom extensions/commands
+##How to Import custom extensions/commands
 
-```bash
-  # drag and drop the extension file to the commands folder wherever the database server is running, and then restart the server commands will automatically be imported.
+### drag and drop the extension file to the commands folder wherever the database server is running, and then restart the server commands will automatically be imported.
 ```
 ## API Reference
 
