@@ -2,12 +2,10 @@
 ## Badges
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
-
-[![Rate this package](https://badges.openbase.com/js/rating/roso-db.svg?style=openbase&token=9ocj18+VRVHU2ARGXIbxunxdTAVkIoBlChonnZPp7BE=)](https://openbase.com/js/roso-db?utm_source=embedded&amp;utm_medium=badge&amp;utm_campaign=rate-badge)
-
 ## Authors
 
 - [@thatfriendlyasiandev](https://www.github.com/babymonie)
+- [waitingwittykitty](https://www.github.com/waitingwittykitty)
 
 
 # ROSO DB
@@ -41,6 +39,115 @@ Install rosodb with npm
   #Run it
 
   cause -h any hostname -p any port -username for connection -pa password for connection
+```
+
+How to create your own custom extensions/commands
+
+```bash
+  #create a file and name it whatever you want and then paste this baseplate code in It,check the api.js docs below for more info.
+  const api = require('roso-db/api')
+  const command = {
+    name: 'create db',
+    description: 'Create a database',
+    args: ['databaseName'],
+    run: async (callback, args) => {
+      const databaseName = args.databaseName;
+
+      if (!api.databaseExists(databaseName)) {
+        api.createDatabase(databaseName);
+        callback({
+          success: true,
+        });
+      } else {
+        callback({
+          success: false,
+          error: `Database [${databaseName}] already exists`,
+        });
+      }
+    },
+  };
+
+  api.registerCommand(command);
+
+  api.executeCommand('create db', { databaseName: 'users' });
+
+  //output
+  {
+    success: true,
+  }
+
+  #this command is a prebuilt command in rosodb so you can use it as a reference for your own commands.
+```
+How to Import custom extensions/commands
+
+```bash
+  # drag and drop the extension file to the commands folder wherever the database server is running, and then restart the server commands will automatically be imported.
+```
+## API Reference
+
+#### Get all databases
+```bash
+  api.getDatabases();
+```
+#### Check if database exists
+```bash
+  api.databaseExists(databaseName);
+```
+#### Create a database
+```bash
+  api.createDatabase(databaseName);
+```
+#### Delete a database
+```bash
+  api.dropDatabase(databaseName);
+```
+#### Get all tables in a database
+```bash
+  api.getTables(databaseName);
+```
+#### Check if table exists in a database
+```bash
+  api.tableExists(databaseName, tableName);
+```
+#### Create a table in a database
+```bash
+  api.createTable(databaseName, tableName, columns);
+```
+#### Delete a table in a database
+```bash
+  api.dropTable(databaseName, tableName);
+```
+#### Update a row in a database
+```bash
+  api.updateTable(databaseName, tableName, rowId, data);
+```
+#### Get a row by an id in a table in a database
+```bash
+  api.selectFromTableById(databaseName, tableName);
+```
+#### Get all rows in a table in a database
+```bash
+  api.getRows(databaseName, tableName);
+```
+#### Get a row by an query in a table in a database
+```bash
+  api.selectFromTableByQuery(databaseName, tableName, query);
+```
+#### Insert a row in a table in a database
+```bash
+  api.insertIntoTable(databaseName, tableName, row);
+```
+#### Delete a row in a table in a database, only takes id to make sure that you don't delete the wrong row
+```bash
+  api.deleteFromTable(databaseName, tableName, id);
+```
+#### Register a command
+```bash
+  api.registerCommand(command);
+```
+#### Execute a command
+```bash
+  api.executeCommand(commandName, args);
 ```
 
 ## Features
